@@ -1,0 +1,160 @@
+.dashboard-container {
+  padding: 40px;
+  background-color: #f5f5f7;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.dashboard-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #333;
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+}
+
+.tasks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+.nav{
+  display:flex;
+  justify-content:space-between;
+}
+.status-filter{
+  display:flex;
+  gap:10px;
+   margin-bottom: 30px;
+}
+
+.search-by-title-div {
+  border: 2px solid black;
+  width: fit-content;
+  /* display: flex;
+  justify-content:center;
+  align-items: center; */
+  border-radius: 6px; 
+  height: 31px;
+
+}
+
+.search-by-title {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 16px;
+
+}
+
+.search-by-title:focus {
+  outline: none;
+}
+
+button{
+ border: none;
+  cursor: pointer;
+}
+.btn-add-task,
+.search-by-title{
+  margin-bottom: 30px;
+  
+}
+
+
+.task-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.task-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.task-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #222;
+}
+.task-badge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+
+.TODO {
+  background-color: #ffe0e0;
+  color: #d32f2f;
+   
+
+}
+
+.IN_PROGRESS {
+  background-color: #fff4e0;
+  color: #f57c00;
+ 
+
+}
+
+.COMPLETED {
+  background-color: #e0f7e9;
+  color: #388e3c;
+ 
+
+}
+
+.task-desc {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+
+.task-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-due {
+  font-size: 12px;
+  color: #888;
+}
+
+
+.task-btn {
+  background-color: #1976d2;
+  color: white;
+
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+ 
+  transition: background-color 0.3s;
+}
+
+.task-btn:hover {
+  background-color: #1565c0;
+}

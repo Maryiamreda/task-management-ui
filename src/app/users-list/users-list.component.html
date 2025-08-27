@@ -1,0 +1,12 @@
+<div class="justify-between">
+  <h2>Users</h2>
+  <button (click)="logOut()">Log out</button>
+</div>
+
+<ul *ngIf="users.length > 0; else noUsers">
+  <li *ngFor="let user of users">{{ user }}</li>
+</ul>
+
+<ng-template #noUsers>
+  <p>No users found.</p>
+</ng-template>

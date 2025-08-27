@@ -1,0 +1,188 @@
+/* task-details.component.css */
+.task-detail-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.task-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.back-btn:hover {
+  background-color: #f8f9fa;
+}
+
+.page-title {
+  color: #333;
+  margin: 0;
+}
+
+.task-detail-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-bottom: 20px;
+}
+
+.task-detail-header-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.task-title {
+  color: #333;
+  margin: 0;
+  flex-grow: 1;
+  margin-right: 20px;
+}
+
+.task-badge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Badge colors */
+.TODO {
+  background-color: #ffe0e0;
+  color: #d32f2f;
+}
+
+.IN_PROGRESS {
+  background-color: #fff4e0;
+  color: #f57c00;
+}
+
+.COMPLETED {
+  background-color: #e0f7e9;
+  color: #388e3c;
+}
+
+
+.task-detail-content {
+  margin-bottom: 30px;
+}
+
+.detail-section {
+  margin-bottom: 25px;
+}
+
+.detail-section h3 {
+  color: #555;
+  font-size: 18px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.task-description {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 16px;
+}
+
+.task-due-date {
+  color: #666;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.task-id {
+  color: #666;
+  margin: 0;
+  font-size: 14px;
+  font-family: monospace;
+  background-color: #f8f9fa;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.task-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-start;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-red {
+  background-color: #E43636;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+.view-actions{
+  display:flex;
+  gap:10px;
+}
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.dialog-box {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 300px;
+}
+
+.dialog-actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-around;
+}
