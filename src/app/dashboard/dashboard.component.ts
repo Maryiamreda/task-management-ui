@@ -25,9 +25,6 @@ import { MatSelectModule } from '@angular/material/select';
 export class DashboardComponent implements OnInit {
   tasks: Task[] = [];
   allTasks: Task[] = [];
-  filteredTasks: Task[] = []; // Add this to track filtered results
-  currentSearchText: string = ''; // Track current search
-  currentStatusFilter: StatusEnum | null = null; // Track current status filter
   StatusEnum = StatusEnum;
 
   private apiUrl = 'http://localhost:8080/users/me/tasks';
@@ -48,7 +45,7 @@ export class DashboardComponent implements OnInit {
         this.getTasks().subscribe({
           next: (tasks: Task[]) => {
             this.allTasks = tasks;
-            this.applyFilters(); // Apply filters instead of direct assignment
+            this.tasks = [...this.allTasks];
           },
           error: (err) => {
             if (err.status === 403) {
@@ -73,49 +70,43 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  // Improved filter method that combines both search and status filters
-  applyFilters() {
-    let result = [...this.allTasks];
-
-    // Apply status filter first
-    if (this.currentStatusFilter !== null) {
-      result = result.filter(task => task.status === this.currentStatusFilter);
-    }
-
-    // Apply search filter
-    if (this.currentSearchText.trim() !== '') {
-      const searchText = this.currentSearchText.toLowerCase().trim();
-      result = result.filter(task =>
-        task.title.toLowerCase().includes(searchText) ||
-        (task.description && task.description.toLowerCase().includes(searchText))
-      );
-    }
-
-    this.tasks = result;
-  }
-
-  // Updated filter status method
+  // Filter status
   FilterByStatus(status: StatusEnum) {
-    this.currentStatusFilter = status;
-    this.applyFilters();
+    this.tasks = this.allTasks.filter(task => task.status === status);
   }
 
-  // Updated clear filter method
   ClearFilterByStatus() {
-    this.currentStatusFilter = null;
-    this.applyFilters();
+    this.tasks = [...this.allTasks];
   }
 
-  // Fixed search method
+  
+    sortByDateasc() {
+    this.ClearFilterByStatus();
+    this.tasks = [...this.tasks].sort((a, b) => {
+      const dateA = new Date(a.dueDate).getTime();
+      const dateB = new Date(b.dueDate).getTime();
+      return dateA - dateB; 
+    });
+  }
+  sortByDatedesc() {
+    this.ClearFilterByStatus();
+    this.tasks = [...this.tasks].sort((a, b) => {
+      const dateA = new Date(a.dueDate).getTime();
+      const dateB = new Date(b.dueDate).getTime();
+return dateB - dateA;
+    });
+  }
+    // Search (uncomment if you want)
   searchByTitle(text: string) {
-    this.currentSearchText = text;
-    this.applyFilters();
-  }
-
-  // Clear search method (optional - you can add a clear button)
-  clearSearch() {
-    this.currentSearchText = '';
-    this.applyFilters();
+    const searchText = text.toLowerCase().trim();
+    if (searchText === '') {
+      this.ClearFilterByStatus();
+      return;
+    }
+    this.tasks = this.allTasks.filter(task =>
+      task.title.toLowerCase().includes(searchText) ||
+      task.description?.toLowerCase().includes(searchText)
+    );
   }
 
   // View task details
