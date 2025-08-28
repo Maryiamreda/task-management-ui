@@ -54,7 +54,8 @@ export class TaskDetailsComponent implements OnInit {
       // this.router.navigate(['/users/me/tasks']);
     }
   }
-//waht is this and is it importnat  
+
+//????
   populateForm() { 
     if (this.task) {
    
@@ -105,7 +106,6 @@ deleteTask() {
 
   updateTask() {
     if (this.editForm.valid && this.taskId) {
-      // this.errorMessage = '';
 
       let token = '';
       if (isPlatformBrowser(this.platformId)) {
@@ -120,13 +120,11 @@ deleteTask() {
       }).subscribe({
         next: (updatedTask) => {
           this.task = updatedTask;
-          // this.successMessage = 'Task updated successfully!';
           this.editMode = false;
           
         },
         error: (err) => {
-          // this.errorMessage = 'Failed to update task. Please try again.';
-          // this.isSubmitting = false;
+        
           console.error('Error updating task:', err);
         }
       });
@@ -134,27 +132,26 @@ deleteTask() {
       this.markFormGroupTouched();
     }
   }
-//what this do is it important
+//???
   markFormGroupTouched() {
     Object.keys(this.editForm.controls).forEach(key => {
       const control = this.editForm.get(key);
       control?.markAsTouched();
     });
-  }
+ }
 
 openDialog(){
      this.deleteDialog = true;
-  }
+}
 
 closeDialog() {
   this.deleteDialog = false;
 }
   setEditMode() {
     this.editMode = true;
-    // this.errorMessage = '';
-    // this.successMessage = '';
+
     this.populateForm();
-  }
+}
 
 
 

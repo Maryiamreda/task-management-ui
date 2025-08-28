@@ -96,7 +96,6 @@ export class DashboardComponent implements OnInit {
 return dateB - dateA;
     });
   }
-    // Search (uncomment if you want)
   searchByTitle(text: string) {
     const searchText = text.toLowerCase().trim();
     if (searchText === '') {
